@@ -1,0 +1,1 @@
+../../commands/changelog/command.md

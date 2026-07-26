@@ -272,6 +272,10 @@ def render_agents_md_content(config: AIWorkspaceConfig, base_dir: Path) -> str:
 
 def render_agents_md(config: AIWorkspaceConfig, base_dir: Path) -> None:
     """Render and write AGENTS.md."""
+    template_path = base_dir / ".ai-workspace/templates/AGENTS.md.j2"
+    if not template_path.exists():
+        print("Skipped AGENTS.md (no template found)")
+        return
     rendered = render_agents_md_content(config, base_dir)
     agents_md_path = base_dir / "AGENTS.md"
     agents_md_path.write_text(rendered, encoding="utf-8")
@@ -280,6 +284,10 @@ def render_agents_md(config: AIWorkspaceConfig, base_dir: Path) -> None:
 
 def check_agents_md(config: AIWorkspaceConfig, base_dir: Path) -> list[str]:
     """Check if AGENTS.md is up to date. Returns list of issues."""
+    template_path = base_dir / ".ai-workspace/templates/AGENTS.md.j2"
+    if not template_path.exists():
+        return []
+
     rendered = render_agents_md_content(config, base_dir)
     agents_md_path = base_dir / "AGENTS.md"
 

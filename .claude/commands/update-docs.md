@@ -1,0 +1,1 @@
+../../commands/update-docs/command.md
