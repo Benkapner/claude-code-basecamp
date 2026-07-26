@@ -1,5 +1,5 @@
 [project]
-name = "claude-code-setup-evaluator"
+name = "claude-code-basecamp"
 version = "1.0.0"
 description = "Claude Code workspace with shared skills, commands, and hooks for day-to-day development."
 readme = "README.md"
@@ -19,7 +19,7 @@ dev = [
 [tool.ruff]
 target-version = "py311"
 line-length = 120
-exclude = ["archive"]
+exclude = ["repositories"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

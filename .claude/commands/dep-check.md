@@ -1,0 +1,1 @@
+../../commands/dep-check/command.md

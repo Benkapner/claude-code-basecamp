@@ -28,6 +28,17 @@
       {
         "hooks": [
           {
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.ai-workspace/scripts/commit-size-guard.sh\"",
+            "statusMessage": "Checking commit size...",
+            "timeout": 5,
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
             "command": "bash \"$CLAUDE_PROJECT_DIR/.ai-workspace/scripts/branch-guard.sh\"",
             "statusMessage": "Checking branch...",
             "timeout": 5,

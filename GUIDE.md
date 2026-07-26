@@ -8,8 +8,8 @@ Everything this workspace gives you — skills, commands, hooks, and how they wo
 
 1. **Clone the workspace**, install dependencies, and run setup:
    ```bash
-   git clone https://github.com/redhat-community-ai-tools/claude-code-setup-evaluator.git
-   cd claude-code-setup-evaluator
+   git clone https://github.com/redhat-community-ai-tools/claude-code-basecamp.git
+   cd claude-code-basecamp
    uv sync
    uv run .ai-workspace/scripts/setup.py
    ```
@@ -94,6 +94,8 @@ Type the command name in the chat to run it.
 | `/ai-engineer-review` | Architecture check | Brutally honest architecture and code review |
 | `/architecture-docs` | Documentation | Generates architecture docs with diagrams (`--quick` for just a Mermaid diagram) |
 | `/focus` | Switch repos mid-session | Re-presents the repo menu, replaces current focus |
+| `/changelog` | Before a release | Generates a changelog grouped by intent from git history |
+| `/dep-check` | Periodic audit | Checks for unused deps, outdated versions, vulnerabilities, license issues |
 | `/toolkit` | First time / discovery | Shows everything available and recommends what to use |
 
 ---
@@ -106,6 +108,7 @@ Hooks fire on specific events — you don't trigger them manually.
 |------|-------|-------------|
 | Session start | When Claude starts | Reports git status of all repos in `repositories/` |
 | Secret scan | Before `git commit` or `git push` | Blocks if API keys detected in tracked files (GitHub, AWS, Anthropic, Atlassian, HuggingFace patterns) |
+| Commit size guard | Before `git commit` | Warns if staged diff exceeds 500 lines and suggests splitting |
 | Skill suggestion | When you edit files | Reminds Claude which skills are relevant to the files you're working on |
 
 The secret scan hook catches these patterns:

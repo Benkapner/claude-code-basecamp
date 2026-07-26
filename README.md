@@ -1,4 +1,4 @@
-# Claude Code Setup Evaluator
+# Claude Code Basecamp
 
 A workspace for Claude Code users who work across multiple repositories. Clone your repos, get shared skills and commands out of the box, add your own.
 
@@ -7,7 +7,7 @@ A workspace for Claude Code users who work across multiple repositories. Clone y
 This is a **meta-workspace**. You clone your project repositories into the `repositories/` folder and run Claude Code from the workspace root. Claude automatically gets access to all skills and commands. Your repos stay independent — they push to their own remotes, the workspace never touches them.
 
 ```
-claude-code-setup-evaluator/
+claude-code-basecamp/
   repositories/           # Clone your repos here (gitignored — yours, not shared)
     my-api/
     frontend/
@@ -20,8 +20,8 @@ claude-code-setup-evaluator/
 ## Quick Start
 
 ```bash
-git clone https://github.com/redhat-community-ai-tools/claude-code-setup-evaluator.git
-cd claude-code-setup-evaluator
+git clone https://github.com/redhat-community-ai-tools/claude-code-basecamp.git
+cd claude-code-basecamp
 uv sync
 uv run .ai-workspace/scripts/setup.py
 
@@ -68,6 +68,8 @@ Skills are knowledge that Claude carries in the background. You don't trigger th
 | `/env-check` | Something broke | Validate environment setup |
 | `/recap` | End of session | Summarize for standup |
 | `/focus` | Switch repos | Pick repos from a list |
+| `/changelog` | Before a release | Generate changelog grouped by intent |
+| `/dep-check` | Periodic audit | Check unused deps, outdated versions, vulnerabilities |
 | `/toolkit` | Discovery | See everything available |
 
 ### Hooks (automatic safety nets)
@@ -76,6 +78,7 @@ Skills are knowledge that Claude carries in the background. You don't trigger th
 |------|-------------|
 | Session start | Reports git status of all your repos |
 | Secret scan | Blocks `git commit`/`push` if API keys detected in tracked files |
+| Commit size guard | Warns if staged diff exceeds 500 lines, suggests splitting |
 | Skill suggestion | Reminds Claude which skills are relevant to files you're editing |
 
 ## Adding Your Own Skills and Commands
