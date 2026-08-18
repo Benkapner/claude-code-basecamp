@@ -33,6 +33,31 @@ Everything this workspace gives you — skills, commands, hooks, and how they wo
 
 > **Note:** Your cloned repos are gitignored — they belong to you, not the workspace. Push changes from inside the repo folder.
 
+### Optional: Token Optimization (Recommended)
+
+Install these tools to reduce costs and improve speed:
+
+#### RTK (Rust Token Killer)
+Compresses bash output before Claude reads it — cuts up to 90% bash output while preserving signal.
+
+```bash
+rtk init -g  # Install and wire up hook (one-time setup)
+```
+
+After install, restart Claude Code. RTK now auto-compacts `git`, `cargo`, `pytest`, and 100+ other commands transparently.
+
+#### Ponytail
+Teaches Claude to write minimal code by checking: does it exist already? can we reuse? is there a stdlib/native feature? — before building. Measured impact: -54% less code, -20% cheaper, -27% faster, 100% safe.
+
+```bash
+/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail
+```
+
+After install, restart Claude Code. Use `/ponytail [lite|full|ultra|off]` to set intensity per session. Commands like `/ponytail-review` are available to audit code for over-engineering.
+
+Both tools are **optional** and can be disabled per-session or globally. See [RTK docs](https://www.rtk-ai.app/) and [Ponytail docs](https://ponytail.dev/) for configuration.
+
 ---
 
 ## Start Here
