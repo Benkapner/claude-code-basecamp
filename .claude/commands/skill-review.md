@@ -1,0 +1,1 @@
+../../commands/skill-review/command.md

@@ -1,0 +1,1 @@
+../../commands/harness-lint/command.md

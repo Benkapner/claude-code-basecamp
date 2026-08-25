@@ -12,4 +12,9 @@ agent_docs = true
 # Target directories for commands
 commands_paths = [
     ".claude/commands",
+    ".cursor/commands",
 ]
+
+# Cursor does not parse command frontmatter as metadata
+[distribution.commands_overrides]
+".cursor/commands" = "strip_frontmatter"
