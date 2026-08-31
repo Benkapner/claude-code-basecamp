@@ -46,13 +46,15 @@ LLM outputs often include markdown fences that break JSON parsing. Always clean 
 ```python
 import json
 
+
 def clean_llm_response(text):
     for prefix in ("```markdown", "```json", "```"):
         if text.startswith(prefix):
-            text = text[len(prefix):].strip()
+            text = text[len(prefix) :].strip()
     if text.endswith("```"):
         text = text[:-3].strip()
     return text
+
 
 def parse_llm_json(text):
     text = clean_llm_response(text)
@@ -85,6 +87,7 @@ def parse_llm_json(text):
 ```python
 # DataFrame testing
 import pandas.testing as tm
+
 
 def test_feature_engineering():
     input_df = pd.DataFrame({"price": [100, 200], "quantity": [2, 3]})
