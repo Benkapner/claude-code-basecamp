@@ -146,7 +146,7 @@ def main() -> None:
     print()
 
     counts = {"major": 0, "minor": 0, "patch": 0}
-    for msg, cls in zip(commits, classifications):
+    for msg, cls in zip(commits, classifications, strict=True):
         counts[cls] += 1
         print(f"  [{cls:5s}] {msg}")
 
