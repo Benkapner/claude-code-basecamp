@@ -41,7 +41,7 @@ def main(argv=None):
             "generated_at": datetime.now().isoformat(),
             "items_processed": len(result),
         },
-        "data": result
+        "data": result,
     }
     save_json_file(output, output_path)
 ```

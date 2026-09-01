@@ -40,10 +40,12 @@ Always define input schemas with validation — never accept raw unvalidated inp
 from mcp.server import Server
 from pydantic import BaseModel, Field
 
+
 class QueryInput(BaseModel):
     dataset: str = Field(description="Dataset identifier")
     filters: dict[str, str] = Field(default_factory=dict)
     limit: int = Field(default=100, le=10000, description="Max rows to return")
+
 
 @server.tool("query_data", "Query a dataset with filters")
 async def query_data(input: QueryInput):
@@ -79,11 +81,13 @@ headers = {"Authorization": f"Bearer {user_context.token}"}
 # Validate and sanitize all inputs before use
 import re
 
+
 def validate_jira_key(key: str) -> str:
     """Only allow valid Jira key format."""
-    if not re.match(r'^[A-Z][A-Z0-9]+-\d+$', key):
+    if not re.match(r"^[A-Z][A-Z0-9]+-\d+$", key):
         raise ValueError(f"Invalid Jira key format: {key}")
     return key
+
 
 # Never pass raw user input to shell commands
 # BAD:
@@ -98,6 +102,7 @@ subprocess.run(["grep", user_input, "data.json"], capture_output=True)
 # Require confirmation for destructive or sensitive actions
 RISKY_OPERATIONS = {"delete", "bulk_update", "export_pii", "drop_table"}
 
+
 @server.tool("delete_record")
 async def delete_record(record_id: str):
     # MCP framework handles approval — tool description should state:
@@ -110,6 +115,7 @@ async def delete_record(record_id: str):
 ```python
 import logging
 
+
 @server.tool("query_data")
 async def query_data(input: QueryInput, context: RequestContext):
     logging.info(
@@ -119,7 +125,7 @@ async def query_data(input: QueryInput, context: RequestContext):
             "user": context.user_id,
             "params": {"dataset": input.dataset, "limit": input.limit},
             "timestamp": datetime.now().isoformat(),
-        }
+        },
     )
     # ... execute query
 ```
