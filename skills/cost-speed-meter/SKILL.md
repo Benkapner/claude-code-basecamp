@@ -1,22 +1,21 @@
 ---
 name: cost-speed-meter
-version: "1.0"
-description: Track command execution time across sessions. Show which operations are slow, suggest faster paths (unit tests vs integration, cached builds), and measure if optimizations worked. Polyglot language support (Python, Node, Rust, Go).
+description: Track command execution times and suggest faster paths. After tests/builds/lint, shows execution cost and recommends fast-path alternatives (unit tests vs integration, cached builds). For feedback loop optimization and proving optimizations worked.
 ---
 
-# Cost & Speed Meter Skill
+# Cost & Speed Meter
 
-Track what's slow. Measure improvements. Suggest faster paths.
+Track execution time. Suggest faster paths. Prove optimizations worked.
 
-Every bash command execution is timed and stored. Across sessions, you see trends: is your test suite getting slower? Did that optimization work? Should you run unit tests instead of the full suite for quick feedback?
+Every bash command is timed and stored. Across sessions, you see trends: is the test suite slower? Did that optimization help? Should you run unit tests instead of full integration tests for faster feedback?
 
-## When to Activate
+## When to Use
 
-- After running tests, builds, or lint (timing is tracked automatically)
-- When focused on feedback loop speed (which path is fastest?)
-- When investigating performance regressions (did something get slower?)
-- Before/after optimization work (prove it helped)
-- Multi-repo work (compare speed across projects)
+- User runs tests, builds, or lint commands — timing is tracked automatically
+- User asks: "is this slow?", "how long did that take?", "what's the slowest operation?"
+- User asks: "what's a faster way to do this?", "what's the quick feedback loop?"
+- User is optimizing something — measure before, optimize, measure after to prove it worked
+- Working across multiple repos — compare execution costs
 
 ## What It Tracks
 

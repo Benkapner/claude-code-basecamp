@@ -18,3 +18,28 @@ commands_paths = [
 # Cursor does not parse command frontmatter as metadata
 [distribution.commands_overrides]
 ".cursor/commands" = "strip_frontmatter"
+
+# Skill activation: explicit triggers and command dependencies
+[skills]
+# Skill-to-commands mapping: which commands invoke which skills
+verify = ["verification-loop"]
+quality-gate = ["verification-loop"]
+refactor-safe = ["verification-loop", "refactoring-patterns"]
+test-coverage = ["verification-loop"]
+update-docs = ["update-docs"]
+diff-explain = []  # standalone command
+explain-code = []  # standalone command
+prompt-test = []  # standalone command
+ai-engineer-review = []  # standalone command
+
+# Skills load declaratively (no manual trigger needed)
+# auto-activating = true means description-based activation in CLAUDE.md
+# Set to false if this skill should only load when explicitly invoked
+[skills.auto-activate]
+security-check = true  # Triggers when editing code that handles credentials/APIs
+verification-loop = true  # Powers multiple commands, loads on-demand
+python-patterns = true  # Triggers when editing Python code
+refactoring-patterns = true  # Triggers when refactoring
+brainstorming = true  # Triggers when user asks for design/planning
+cost-speed-meter = true  # Tracks all command execution automatically
+update-docs = false  # Activated via /update-docs command

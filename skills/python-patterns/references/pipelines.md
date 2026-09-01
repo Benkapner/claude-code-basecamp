@@ -1,18 +1,6 @@
----
-name: data-pipeline-patterns
-version: "1.0"
-description: Team conventions for Python data pipelines — stage structure, JSON output format, debugging workflow, and anti-patterns. Supplements standard patterns with team-specific rules.
----
+# Data Pipeline Patterns
 
-# Data Pipeline Patterns — Team Conventions
-
-Claude already knows validation, error handling, and retry patterns. This covers our team's specific stage structure and conventions.
-
-## When to Activate
-
-- Building or modifying data pipeline stages
-- Debugging pipeline failures (empty data, schema mismatches)
-- Reviewing pipeline code
+Structured patterns for Python data pipelines — team-specific conventions on top of standard validation/error handling.
 
 ## Standard Stage Structure
 
@@ -46,7 +34,12 @@ def main(argv=None):
     save_json_file(output, output_path)
 ```
 
-**Key rules:** Each stage is independently runnable (CLI + importable). Validate input before processing. Include metadata in every output. Fail fast on invalid input. Checkpoint every N items on long operations.
+**Key rules:**
+- Each stage is independently runnable (CLI + importable)
+- Validate input before processing
+- Include metadata in every output
+- Fail fast on invalid input
+- Checkpoint every N items on long operations
 
 ## JSON Data File Conventions
 

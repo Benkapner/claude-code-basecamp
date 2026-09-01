@@ -1,38 +1,42 @@
 ---
 name: brainstorming
-description: "Use when the user asks to design, plan, or explore approaches before implementing — creating features, building components, or adding functionality that would benefit from design exploration first."
+description: "User asks for design, planning, or approach exploration before implementation. Covers new features, components, refactors, or architecture decisions. Creates design docs and proposes approaches with trade-offs."
 ---
 
-# Brainstorming Ideas Into Designs
+# Brainstorming — Design Exploration
 
-Help turn ideas into fully formed designs through collaborative dialogue.
+Turn ideas into fully formed designs through collaborative dialogue.
 
-When this skill activates, present a design before writing code. The design can be short (a few sentences for simple projects) — scale it to the complexity of the task. Get the user's approval before proceeding to implementation.
+When triggered, present a design before implementation. The design scales to complexity: short (few sentences) for simple tasks, detailed (pages) for architectural changes. Always get approval before proceeding to code.
+
+## When to Activate
+
+- User explicitly asks: "design this", "how should i build", "what's the approach", "plan this out"
+- User describes a feature/component/refactor and asks for guidance before coding
+- User wants to explore trade-offs or multiple approaches to a problem
 
 ## Process
 
-1. **Explore context** — check files, docs, recent commits
-2. **Ask clarifying questions** — one at a time, prefer multiple choice, understand purpose/constraints/success criteria
-3. **Propose 2-3 approaches** — with trade-offs and your recommendation
-4. **Present design** — scale each section to its complexity, ask after each section if it looks right
-5. **Write spec** — save to `docs/specs/` (create directory if needed) and commit
-6. **User reviews spec** — wait for approval before proceeding
-7. **Transition** — invoke writing-plans skill to create implementation plan
+1. **Explore context** — check relevant code files, docs, recent commits
+2. **Ask clarifying questions** — one at a time, prefer multiple choice, understand: purpose, constraints, success criteria, scope
+3. **Propose 2-3 approaches** — name each, describe trade-offs, state your recommendation
+4. **Present design** — scale to complexity (1-2 sentences for trivial, multiple sections for architecture), ask approval after each section
+5. **Get approval** — wait for user buy-in before writing code
 
 ## Design Principles
 
-- **One question at a time** — don't overwhelm with multiple questions
+- **One question at a time** — don't overwhelm
 - **YAGNI ruthlessly** — remove unnecessary features
-- **Design for isolation** — break into units with one clear purpose, well-defined interfaces, testable independently
-- **Explore alternatives** — always propose 2-3 approaches before settling
-- **Scope check** — if the request describes multiple independent subsystems, decompose into sub-projects first
+- **Design for isolation** — break into units with one purpose, well-defined interfaces, independently testable
+- **Explore alternatives** — always 2-3 approaches, with trade-offs
+- **Scope check** — if request spans multiple subsystems, decompose first
 
-## Working in Existing Codebases
+## In Existing Codebases
 
-- Explore the current structure before proposing changes. Follow existing patterns.
-- Where existing code has problems that affect the work, include targeted improvements as part of the design.
-- Don't propose unrelated refactoring. Stay focused on what serves the current goal.
+- Explore current structure and patterns before proposing changes
+- Include targeted fixes only if they block the current goal
+- Don't propose unrelated refactoring
 
-## After Design Approval
+## Output
 
-Invoke the writing-plans skill to create a detailed implementation plan. Do NOT invoke any other skill — writing-plans is the next step.
+Present design as prose (short or detailed based on complexity), then ask: "Does this look right?" Wait for approval before proceeding to implementation.
