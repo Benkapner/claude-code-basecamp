@@ -1,7 +1,7 @@
 #!/bin/bash
-# Auto-tracking hook for cost-speed-meter
-# Measures execution time of test, build, lint, and git commands
-# Called by Claude Code PreToolUse hook
+# Optional suggestion hook for cost-speed-meter.
+# It is intentionally not installed as a global command hook: PreToolUse
+# cannot measure the command that runs after it. Use meter.sh explicitly.
 
 METRICS_DIR="${CLAUDE_PROJECT_DIR}/.claude"
 METRICS_FILE="${METRICS_DIR}/metrics.json"
@@ -54,13 +54,5 @@ category=$(categorize_cmd "$CMD")
 
 # Only track if metrics file exists (repo has initialized)
 [[ ! -f "$METRICS_FILE" ]] && exit 0
-
-# Record timing in background (don't block the command)
-{
-  start_time=$(date +%s.%N)
-  # Actual command runs via Claude Code (not here)
-  # We just record what we know
-  sleep 0.1  # placeholder; actual timing comes from Claude Code measurement
-} &
 
 exit 0

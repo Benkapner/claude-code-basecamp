@@ -1,5 +1,5 @@
 ---
-description: "Analyze test coverage, identify gaps, and generate missing tests to reach 80%+ coverage."
+description: "Analyze test coverage, identify gaps, and generate focused missing tests. Respects the project's configured coverage target when one exists."
 ---
 
 # Test Coverage Command
@@ -75,7 +75,7 @@ For each under-covered file, generate tests following this priority:
 
 1. Run the full test suite — all tests must pass
 2. Re-run coverage — verify improvement
-3. If still below 80%, repeat Step 3 for remaining gaps
+3. If still below the project's configured target, repeat Step 3 for the highest-value remaining gaps. If no target is configured, report the measured coverage without imposing an arbitrary threshold.
 
 ### Step 5: Report
 

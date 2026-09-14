@@ -6,7 +6,7 @@ description: Use when starting work in a repository under repositories/ that may
 
 # CI Guard
 
-Every repository using this basecamp should have CI unless explicitly marked as research. This skill checks for CI configuration and alerts when it's missing.
+Repositories benefit from CI, but this skill is advisory. It checks for CI configuration and alerts when it is missing, while allowing research, prototypes, and intentionally local projects.
 
 ## When to Activate
 

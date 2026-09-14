@@ -79,9 +79,8 @@ Skills activate on their own — you just get better results. They live in `skil
 
 | Skill | Purpose | When it activates |
 |-------|---------|-------------------|
-| `python-conventions` | Dotenv conventions, API client rules, LLM response parsing, TDD workflow, pytest patterns | When you edit Python files or API client code |
+| `python-patterns` | Dotenv conventions, API client rules, LLM response parsing, TDD workflow, pytest patterns | When you edit Python files or API client code |
 | `security-check` | Credential leak detection (API keys for GitHub, Stripe, AWS, etc.), insecure code patterns (eval, pickle, shell injection), LLM-specific risks | When you edit code that touches credentials, APIs, or security-sensitive patterns |
-| `data-pipeline-patterns` | Pipeline stage design, data validation, circuit breakers, checkpoint/resume, debugging | When you work on pipeline scripts or data processing code |
 | `refactoring-patterns` | Measurement-driven refactoring — profile before, measure after, keep only if metrics improve. Bulk mode for 10+ files. | When you say "refactor", "clean up", or code has high complexity |
 | `verification-loop` | Unified engine behind `/verify`, `/quality-gate` — environment, types, lint, tests, review, security | When you invoke /verify or /quality-gate |
 | `brainstorming` | Design exploration before implementation — asks questions, proposes approaches, presents design for approval | When creative/design work is detected |

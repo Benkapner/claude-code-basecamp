@@ -2,7 +2,7 @@
 
 ## TDD Cycle
 
-**RED** (write failing test) → **GREEN** (minimal code to pass) → **REFACTOR** (improve while green). Target 80%+ coverage.
+**RED** (write failing test) → **GREEN** (minimal code to pass) → **REFACTOR** (improve while green). Follow the project's configured coverage target when one exists.
 
 ## Testing Patterns
 
@@ -33,4 +33,4 @@ def test_model_reproducibility(sample_df):
 - **Test behavior, not internals** — assert outputs, not private attributes
 - **Independent tests** — each test sets up its own data
 - **Test edge cases** — None, empty DataFrame, NaN, inf
-- Target **80%+ coverage**
+- Follow the project's configured coverage target; otherwise prioritize meaningful behavior coverage.

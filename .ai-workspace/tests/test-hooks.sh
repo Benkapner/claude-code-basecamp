@@ -62,22 +62,22 @@ fi
 # SKILL SUGGEST HOOK TESTS
 # ============================================================
 
-# Test 4: Python file → python-conventions
+# Test 4: Python file → python-patterns
 export CLAUDE_TOOL_INPUT='{"file_path": "/home/user/main.py"}'
 OUTPUT=$(bash "$PROJECT_DIR/.ai-workspace/scripts/skill-suggest.sh" 2>&1)
-if echo "$OUTPUT" | grep -q "python-conventions"; then
-    pass "Skill suggest: .py → python-conventions"
+if echo "$OUTPUT" | grep -q "python-patterns"; then
+    pass "Skill suggest: .py → python-patterns"
 else
-    fail "Skill suggest: .py → python-conventions" "Got: $OUTPUT"
+    fail "Skill suggest: .py → python-patterns" "Got: $OUTPUT"
 fi
 
-# Test 5: Test file → python-conventions
+# Test 5: Test file → python-patterns
 export CLAUDE_TOOL_INPUT='{"file_path": "/home/user/tests/test_main.py"}'
 OUTPUT=$(bash "$PROJECT_DIR/.ai-workspace/scripts/skill-suggest.sh" 2>&1)
-if echo "$OUTPUT" | grep -q "python-conventions"; then
-    pass "Skill suggest: test file → python-conventions"
+if echo "$OUTPUT" | grep -q "python-patterns"; then
+    pass "Skill suggest: test file → python-patterns"
 else
-    fail "Skill suggest: test file → python-conventions" "Got: $OUTPUT"
+    fail "Skill suggest: test file → python-patterns" "Got: $OUTPUT"
 fi
 
 # Test 6: .env file → security-check
@@ -89,13 +89,13 @@ else
     fail "Skill suggest: .env → security-check" "Got: $OUTPUT"
 fi
 
-# Test 7: Pipeline file → data-pipeline-patterns
+# Test 7: Pipeline file → python-patterns
 export CLAUDE_TOOL_INPUT='{"file_path": "/home/user/scripts/fetch_data.py"}'
 OUTPUT=$(bash "$PROJECT_DIR/.ai-workspace/scripts/skill-suggest.sh" 2>&1)
-if echo "$OUTPUT" | grep -q "data-pipeline-patterns"; then
-    pass "Skill suggest: pipeline file → data-pipeline-patterns"
+if echo "$OUTPUT" | grep -q "python-patterns"; then
+    pass "Skill suggest: pipeline file → python-patterns"
 else
-    fail "Skill suggest: pipeline file → data-pipeline-patterns" "Got: $OUTPUT"
+    fail "Skill suggest: pipeline file → python-patterns" "Got: $OUTPUT"
 fi
 
 # Test 8: Git command → security-check
