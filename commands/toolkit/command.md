@@ -90,7 +90,7 @@ Based on what the user is currently doing, suggest specific tools:
 → "New to this repo? Ask me to explain how the project works and I'll onboard you."
 
 **If they're in a data pipeline project (Python + JSON/YAML + API calls):**
-→ "This looks like a data pipeline. `data-pipeline-patterns` and `python-conventions` will activate automatically when you write pipeline code."
+→ "This looks like a data pipeline. `python-patterns` will activate automatically when you write pipeline code."
 
 **If there's a `.mcp.json` file:**
 → "MCP is configured here. The `mcp-patterns` agent-doc will help if you build or modify MCP servers."
@@ -99,7 +99,7 @@ Based on what the user is currently doing, suggest specific tools:
 → "Found tests. Run `/test-coverage` to see what's untested."
 
 **If there are failing tests or recent errors:**
-→ "Looks like something is broken. The `systematic-debugging` skill will activate — it follows a structured root cause analysis instead of guessing."
+→ "Looks like something is broken. Use `/env-check` first, then `/verify` after applying a fix."
 
 **If files are large or complex (>300 lines, deep nesting):**
 → "Some files here are getting complex. When you're ready to clean up, `refactoring-patterns` will guide measurement-driven refactoring."

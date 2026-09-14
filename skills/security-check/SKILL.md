@@ -1,7 +1,7 @@
 ---
 name: security-check
 version: "1.0"
-description: Scan Python projects for credential leaks, secrets in code, insecure patterns, LLM API key exposure, PII leakage to external AI services, and .env/.gitignore misconfigurations. Focused on data science pipelines handling API keys, tokens, and LLM integrations.
+description: Scan projects for credential leaks, secrets in code, insecure patterns, LLM API key exposure, PII leakage to external AI services, and .env/.gitignore misconfigurations. Especially useful for data and API integrations, regardless of implementation language.
 ---
 
 # Security Check Skill

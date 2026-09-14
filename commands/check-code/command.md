@@ -1,10 +1,10 @@
 ---
-description: "Check code quality and run linting"
+description: "Run a lightweight Python lint and format check. Use /verify for the full environment, type, lint, and test workflow."
 ---
 
-# Check Code
+# Check Code (lightweight)
 
-Look at the code in the current directory or the path provided by the user.
+Look at the Python code in the current directory or the path provided by the user. This is the fast feedback command; use `/verify` for the complete check.
 
 Run these checks:
 1. Run `ruff check .` to find linting issues

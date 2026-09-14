@@ -6,7 +6,7 @@ description: Use when committing or pushing changes and the repository needs a v
 
 # Semantic Versioning
 
-Determine the next version from commit history. Every pushed change gets classified; the highest-impact commit drives the bump.
+Determine the next version from commit history when preparing a release. The highest-impact release-relevant commit drives the bump.
 
 ## When to Activate
 

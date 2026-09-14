@@ -14,7 +14,7 @@ SKILLS=""
 
 # Check file extensions and paths
 if echo "$FILE" | grep -qiE 'test_|_test\.py|tests/|\.py$'; then
-    SKILLS="$SKILLS python-conventions"
+    SKILLS="$SKILLS python-patterns"
 fi
 
 if echo "$FILE" | grep -qiE '\.env|\.gitignore|secret|credential|token'; then
@@ -22,16 +22,16 @@ if echo "$FILE" | grep -qiE '\.env|\.gitignore|secret|credential|token'; then
 fi
 
 if echo "$FILE" | grep -qiE 'pipeline|fetch_|group_|filter_|summarize_|categorize_'; then
-    SKILLS="$SKILLS data-pipeline-patterns"
+    SKILLS="$SKILLS python-patterns"
 fi
 
 if echo "$FILE" | grep -qiE 'api|client|request|fetch'; then
-    SKILLS="$SKILLS python-conventions"
+    SKILLS="$SKILLS python-patterns"
 fi
 
 # Check command content
 if echo "$CMD" | grep -qiE 'pytest|test|coverage'; then
-    SKILLS="$SKILLS python-conventions"
+    SKILLS="$SKILLS python-patterns"
 fi
 
 if echo "$CMD" | grep -qiE 'git (commit|push|merge|rebase)'; then

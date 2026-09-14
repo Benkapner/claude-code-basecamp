@@ -93,7 +93,7 @@ PYTHON
 show_current() {
   [[ ! -f "$METRICS_FILE" ]] && { echo "No metrics yet. Run commands first."; return; }
 
-  python3 << 'PYTHON'
+  METRICS_FILE="$METRICS_FILE" python3 << 'PYTHON'
 import json
 import os
 
@@ -103,7 +103,7 @@ with open(metrics_file, 'r') as f:
 
 if not data['operations']:
   print("No operations tracked yet.")
-  return
+  raise SystemExit(0)
 
 print("\n=== CURRENT METRICS ===")
 print(f"Repo: {data['repo']}\n")
@@ -130,7 +130,7 @@ PYTHON
 weekly_report() {
   [[ ! -f "$METRICS_FILE" ]] && { echo "No metrics yet."; return; }
 
-  python3 << 'PYTHON'
+  METRICS_FILE="$METRICS_FILE" python3 << 'PYTHON'
 import json
 import os
 

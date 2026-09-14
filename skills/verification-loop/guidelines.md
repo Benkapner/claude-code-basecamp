@@ -14,8 +14,8 @@
 
 ## Coverage Target
 
-- Minimum **80%** test coverage
-- If coverage drops below 80%, flag it as a finding
+- Use the project's configured coverage target when one exists.
+- If no target is configured, report measured coverage and prioritize important untested behavior rather than enforcing a universal percentage.
 
 ## Escalation
 

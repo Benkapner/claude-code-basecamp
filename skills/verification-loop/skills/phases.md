@@ -27,7 +27,7 @@ ruff format --check . 2>&1
 pytest --cov --cov-report=term-missing -q 2>&1 | tail -50
 ```
 
-Target: 80% minimum coverage.
+Use the project's configured coverage target when one exists. Otherwise report measured coverage and identify untested high-risk code without imposing a universal threshold.
 
 ## Phase 5: Code Review
 
