@@ -47,8 +47,8 @@ jobs:
       - name: Install dependencies
         run: uv sync --group dev
 
-      - name: Run tests
-        run: uv run pytest -v
+      - name: Run tests with coverage
+        run: uv run pytest -v --cov --cov-report=term
 
   workspace-alignment:
     runs-on: ubuntu-latest

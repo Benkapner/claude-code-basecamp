@@ -10,6 +10,7 @@
 # DataFrame testing
 import pandas.testing as tm
 
+
 def test_feature_engineering():
     input_df = pd.DataFrame({"price": [100, 200], "quantity": [2, 3]})
     result = add_total_column(input_df)
