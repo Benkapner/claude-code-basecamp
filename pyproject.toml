@@ -25,6 +25,11 @@ exclude = ["repositories"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
+[tool.coverage.run]
+# Measure the workspace's own code only. Without this, a bare `--cov` also
+# counts tests/ as covered code and reports a misleadingly high number.
+source = [".ai-workspace"]
+
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
 ignore = ["E501"]
