@@ -16,6 +16,7 @@ Cross-platform: works on Windows, macOS, and Linux.
 import argparse
 import datetime
 import secrets
+import sys
 from pathlib import Path
 
 
@@ -53,7 +54,11 @@ def main() -> None:
 
     relative_path = task_dir.relative_to(base_dir).as_posix()
     action = "Created" if created else "Using existing"
-    print(f"{action} task directory: {relative_path}")
+    # Status goes to stderr so that `$(mktmpdir.py)` captures the path alone.
+    # Emitting the prose on stdout made callers create directories literally
+    # named "Created task directory: .tmp/...".
+    print(f"{action} task directory: {relative_path}", file=sys.stderr)
+    print(relative_path)
 
 
 if __name__ == "__main__":

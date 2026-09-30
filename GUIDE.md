@@ -84,6 +84,10 @@ Skills activate on their own — you just get better results. They live in `skil
 | `refactoring-patterns` | Measurement-driven refactoring — profile before, measure after, keep only if metrics improve. Bulk mode for 10+ files. | When you say "refactor", "clean up", or code has high complexity |
 | `verification-loop` | Unified engine behind `/verify`, `/quality-gate` — environment, types, lint, tests, review, security | When you invoke /verify or /quality-gate |
 | `brainstorming` | Design exploration before implementation — asks questions, proposes approaches, presents design for approval | When creative/design work is detected |
+| `update-docs` | Matches a code diff against in-repo doc files and applies targeted updates to whatever went stale | When a change renames, removes, or adds APIs, fields, config keys, or CLI flags |
+| `ci-guard` | Detects repos with no CI workflow (GitHub Actions, GitLab CI, CircleCI) and prompts you to add one. Skips repos marked research-only. | When you start work in a repo under `repositories/` |
+| `semantic-versioning` | Reads conventional commit prefixes to decide whether the next release is major, minor, or patch | When you commit or push and the repo needs a version bump, or you ask about releases |
+| `cost-speed-meter` | Records explicit timing measurements and recommends faster alternatives, such as unit over integration tests. Opt-in, not on every command. | When you ask to time a command or speed up a feedback loop |
 
 ### On-demand docs (agent-docs/)
 
@@ -96,6 +100,7 @@ These are NOT loaded every session. Claude reads them only when the task require
 | `codebase-onboarding` | Systematic onboarding to unfamiliar codebases |
 | `writing-skills` | TDD methodology for creating new skills |
 | `subagent-driven-development` | Dispatching subagents per task with two-stage review |
+| `workspace-development` | Modifying and extending this workspace (config, skills, commands, hooks) |
 
 ---
 
@@ -120,6 +125,14 @@ Type the command name in the chat to run it.
 | `/focus` | Switch repos mid-session | Re-presents the repo menu, replaces current focus |
 | `/changelog` | Before a release | Generates a changelog grouped by intent from git history |
 | `/dep-check` | Periodic audit | Checks for unused deps, outdated versions, vulnerabilities, license issues |
+| `/check-code` | Quick pass while coding | Lightweight Python lint and format check. Use `/verify` for the full workflow. |
+| `/update-docs` | After code changes | Scans docs in the focused repo, matches them against the diff, proposes targeted updates |
+| `/repo-sync` | Start of session | Fetches and reports which focused repos are behind the remote or have uncommitted changes |
+| `/harness-lint` | Agent setup in CI | 97 deterministic rules plus system-level analysis. No LLM, fast, reproducible. |
+| `/harness-review` | Agent setup audit | Reads every file and gives KEEP/REVIEW/REMOVE verdicts per component |
+| `/harness-security` | Agent setup audit | Deterministic scanning combined with semantic security review |
+| `/skill-review` | Authoring a skill | Deep static and qualitative evaluation of one skill, alone and in context |
+| `/skill-verify` | Before installing a skill | Lint plus security in one pass, returns SAFE / CAUTION / UNSAFE |
 | `/toolkit` | First time / discovery | Shows everything available and recommends what to use |
 
 ---
