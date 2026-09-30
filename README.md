@@ -49,6 +49,10 @@ Skills are knowledge that Claude carries in the background. You don't trigger th
 | `refactoring-patterns` | Measurement-driven refactoring with before/after metrics |
 | `verification-loop` | Powers `/verify`, `/quality-gate` (invoked on demand) |
 | `brainstorming` | Design exploration before implementation |
+| `update-docs` | Detects docs made stale by a code diff, applies targeted updates |
+| `ci-guard` | Flags repos under `repositories/` that have no CI workflow |
+| `semantic-versioning` | Reads conventional commits to pick the next major/minor/patch |
+| `cost-speed-meter` | Opt-in timing of commands, suggests faster feedback loops |
 
 ### Commands (you trigger these)
 
@@ -69,6 +73,14 @@ Skills are knowledge that Claude carries in the background. You don't trigger th
 | `/focus` | Switch repos | Pick repos from a list |
 | `/changelog` | Before a release | Generate changelog grouped by intent |
 | `/dep-check` | Periodic audit | Check unused deps, outdated versions, vulnerabilities |
+| `/check-code` | Quick pass | Lightweight Python lint and format check |
+| `/update-docs` | After code changes | Find stale docs, propose targeted updates |
+| `/repo-sync` | Start of session | Fetch and report repos that are behind or dirty |
+| `/harness-lint` | Agent setup CI | 97 deterministic rules, no LLM, reproducible |
+| `/harness-review` | Agent setup audit | Per-component KEEP/REVIEW/REMOVE verdicts |
+| `/harness-security` | Agent setup audit | Deterministic scan plus semantic security review |
+| `/skill-review` | Authoring a skill | Deep static and qualitative evaluation of one skill |
+| `/skill-verify` | Before installing | Lint plus security in one pass: SAFE / CAUTION / UNSAFE |
 | `/toolkit` | Discovery | See everything available |
 
 ### Hooks (automatic safety nets)
