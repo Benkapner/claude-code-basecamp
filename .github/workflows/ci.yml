@@ -47,8 +47,11 @@ jobs:
       - name: Install dependencies
         run: uv sync --group dev
 
-      - name: Run tests
-        run: uv run pytest -v
+      - name: Run tests with coverage
+        # Ratchet: raise --cov-fail-under as coverage improves. Target is 80%;
+        # the floor starts at the currently achievable 20% so the gate blocks
+        # regressions today instead of failing on day one.
+        run: uv run pytest -v --cov --cov-report=term --cov-report=xml --cov-fail-under=20
 
   workspace-alignment:
     runs-on: ubuntu-latest
